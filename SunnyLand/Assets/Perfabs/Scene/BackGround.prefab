@@ -342,6 +342,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3294614785213705605}
   - component: {fileID: 3294614785213705604}
+  - component: {fileID: 3294614785997653224}
   m_Layer: 0
   m_Name: BackGround
   m_TagString: Untagged
@@ -397,6 +398,21 @@ PolygonCollider2D:
       - {x: -59.995163, y: 7.490597}
       - {x: -59.979847, y: -7.498845}
       - {x: 59.99944, y: -7.494357}
+--- !u!114 &3294614785997653224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3294614785213705607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52dc48edf99e66543abd41d1c1aef071, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  moveRate: 0.5
+  lockY: 1
 --- !u!1 &3294614786900917521
 GameObject:
   m_ObjectHideFlags: 0

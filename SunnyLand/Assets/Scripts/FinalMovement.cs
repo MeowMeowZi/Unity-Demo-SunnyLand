@@ -96,11 +96,13 @@ public class FinalMovement : MonoBehaviour
             if (isCrouch)
             {
                 headColl.enabled = false;
+                coll.enabled = true;
                 speed = speedTemp;
             }
             else
             {
                 headColl.enabled = true;
+                coll.enabled = false;
                 speed = speedTemp + 2;
             }
         }
@@ -150,16 +152,20 @@ public class FinalMovement : MonoBehaviour
     {
         if (collision.CompareTag("Cherry"))
         {
+            Animator cherryAnim = collision.GetComponent<Animator>();
+            cherryAnim.SetTrigger("Collection");
             cherryAudio.Play();
-            Destroy(collision.gameObject);
+            Destroy(collision.gameObject, 0.3f);
             cherry++;
             cherryNumber.text = cherry.ToString();
         }
 
         if (collision.CompareTag("Gem"))
         {
+            Animator gemAnim = collision.GetComponent<Animator>();
+            gemAnim.SetTrigger("Collection");
             gemAudio.Play();
-            Destroy(collision.gameObject);
+            Destroy(collision.gameObject, 0.3f);
             gem++;
             gemNumber.text = gem.ToString();
         }

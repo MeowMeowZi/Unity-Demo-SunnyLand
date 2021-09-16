@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-
+    protected Collider2D coll;
     protected Animator anim;
     protected new AudioSource audio;
     protected virtual void Start()
     {
+        coll = GetComponent<Collider2D>();
         anim = GetComponent<Animator>();
         audio = GetComponent<AudioSource>();
     }
