@@ -20,12 +20,11 @@ public class Parallax : MonoBehaviour
     {
         if (lockY)
         {
-            transform.position = new Vector2(startPointX + cam.position.x * moveRate, cam.position.y);
-            Debug.Log("lockY");
+            transform.position = new Vector2(startPointX + cam.position.x * moveRate, transform.position.y);
         }   
         else
         {
-            transform.position = new Vector2(startPointX + cam.position.x * moveRate, startPointY + cam.position.y);
+            transform.position = new Vector2(startPointX + cam.position.x * moveRate, startPointY + cam.position.y * moveRate);
         }
     }
 }
