@@ -79,7 +79,7 @@ public class FinalMovement : MonoBehaviour
             jumpCount = 2;
         }
         
-        if (jumpPressed && jumpCount > 0)
+        if (jumpPressed && jumpCount > 0 && !isCrouch)
         {
             SoundManager.instance.JumpAudio();
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);

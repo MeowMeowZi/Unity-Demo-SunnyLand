@@ -8,6 +8,7 @@ TagManager:
   - Gem
   - Enemy
   - DeadLine
+  - Sign
   layers:
   - Default
   - TransparentFX
@@ -48,18 +49,24 @@ TagManager:
   - name: BackGround
     uniqueID: 2645018001
     locked: 0
+  - name: BackEnvironment
+    uniqueID: 1237428449
+    locked: 0
   - name: Road
     uniqueID: 28381179
     locked: 0
-  - name: FrontGround
-    uniqueID: 1084083725
+  - name: Obstacle
+    uniqueID: 3612528779
     locked: 0
   - name: Enemy
     uniqueID: 1968268685
     locked: 0
+  - name: Collection
+    uniqueID: 1588374147
+    locked: 0
   - name: Player
     uniqueID: 3101659139
     locked: 0
-  - name: Collection
-    uniqueID: 1588374147
+  - name: FrontEnvironment
+    uniqueID: 1084083725
     locked: 0
