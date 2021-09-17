@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyEagle : Enemy
 {
     public Transform topTransform, buttonTransform;
-    private Rigidbody2D rb;
     public float speed;
     private float topPoint, buttonPoint;
     private bool topFly = true;
@@ -13,7 +12,6 @@ public class EnemyEagle : Enemy
     protected override void Start()
     {
         base.Start();
-        rb = GetComponent<Rigidbody2D>();
         transform.DetachChildren();
         topPoint = topTransform.position.y;
         buttonPoint = buttonTransform.position.y;
@@ -23,7 +21,10 @@ public class EnemyEagle : Enemy
 
     void FixedUpdate()
     {
-        Movement();
+        if (!isDeath)
+        {
+            Movement();
+        }
     }
 
     void Movement()

@@ -12,7 +12,6 @@ public class FinalMovement : MonoBehaviour
     public float speed, jumpForce, hurtForce;
     public Collider2D coll, headColl;
     public Transform groundCheck, headCheck;
-    public AudioSource jumpAudio, hurtAudio, cherryAudio, gemAudio, bgmAudio;
     public Text cherryNumber, gemNumber;
     public LayerMask ground;
 
@@ -82,6 +81,7 @@ public class FinalMovement : MonoBehaviour
         
         if (jumpPressed && jumpCount > 0)
         {
+            SoundManager.instance.JumpAudio();
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             jumpCount--;
             jumpPressed = false;
@@ -107,7 +107,7 @@ public class FinalMovement : MonoBehaviour
             }
         }
     }
-
+    
     // ¶¯»­ÇÐ»»
     void SwitchAnim()
     {
@@ -154,7 +154,7 @@ public class FinalMovement : MonoBehaviour
         {
             Animator cherryAnim = collision.GetComponent<Animator>();
             cherryAnim.SetTrigger("Collection");
-            cherryAudio.Play();
+            SoundManager.instance.CherryAudio();
             Destroy(collision.gameObject, 0.3f);
             cherry++;
             cherryNumber.text = cherry.ToString();
@@ -164,7 +164,7 @@ public class FinalMovement : MonoBehaviour
         {
             Animator gemAnim = collision.GetComponent<Animator>();
             gemAnim.SetTrigger("Collection");
-            gemAudio.Play();
+            SoundManager.instance.GemAudio();
             Destroy(collision.gameObject, 0.3f);
             gem++;
             gemNumber.text = gem.ToString();
@@ -172,7 +172,7 @@ public class FinalMovement : MonoBehaviour
 
         if (collision.CompareTag("DeadLine"))
         {
-            bgmAudio.Stop();
+            SoundManager.instance.bgmAudio.Stop();
             Invoke("DeadLine", 2.0f);
         }
     }
@@ -202,7 +202,7 @@ public class FinalMovement : MonoBehaviour
                     rb.velocity = new Vector2(5, jumpForce);
                 }
                 isHurt = true;
-                hurtAudio.Play();
+                SoundManager.instance.HurtAudio();
                 anim.SetBool("Hurt", true);
             }
         }
@@ -210,7 +210,7 @@ public class FinalMovement : MonoBehaviour
 
     void DeadLine()
     {
-        bgmAudio.Play();
+        SoundManager.instance.bgmAudio.Play();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

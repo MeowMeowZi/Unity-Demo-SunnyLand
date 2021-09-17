@@ -6,7 +6,6 @@ public class EnemyFrog : Enemy
 {
     public Transform leftTransform, rightTransform;
     public LayerMask ground;
-    private Rigidbody2D rb;
     public float speed, jumpFouce;
     private float leftPoint, rightPoint;
     private bool faceLeft = true;
@@ -14,7 +13,6 @@ public class EnemyFrog : Enemy
     protected override void Start()
     {
         base.Start();
-        rb = GetComponent<Rigidbody2D>();
         transform.DetachChildren();
         leftPoint = leftTransform.position.x;
         rightPoint = rightTransform.position.x;
