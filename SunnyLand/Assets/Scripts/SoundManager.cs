@@ -9,7 +9,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource soundManager;
     public AudioSource bgmAudio;
     [SerializeField]
-    private AudioClip jumpAudio, hurtAduio, cherryAudio, gemAudio;
+    private AudioClip jumpAudio, hurtAduio, cherryAudio, gemAudio, deathAudio;
 
     private void Awake()
     {
@@ -37,6 +37,12 @@ public class SoundManager : MonoBehaviour
     public void GemAudio()
     {
         soundManager.clip = gemAudio;
+        soundManager.Play();
+    }
+
+    public void DeathAudio()
+    {
+        soundManager.clip = deathAudio;
         soundManager.Play();
     }
 }

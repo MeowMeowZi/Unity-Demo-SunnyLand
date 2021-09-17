@@ -173,6 +173,7 @@ public class FinalMovement : MonoBehaviour
         if (collision.CompareTag("DeadLine"))
         {
             SoundManager.instance.bgmAudio.Stop();
+            SoundManager.instance.DeathAudio();
             Invoke("DeadLine", 2.0f);
         }
     }

@@ -4473,6 +4473,7 @@ MonoBehaviour:
   hurtAduio: {fileID: 8300000, guid: e13525498aa675945a5d235cea542c1e, type: 3}
   cherryAudio: {fileID: 8300000, guid: b55202a6cff9b174abe235480b441275, type: 3}
   gemAudio: {fileID: 8300000, guid: 7117bd83ce35e744198f51b47198e532, type: 3}
+  deathAudio: {fileID: 8300000, guid: af27795f4a6f94a4491e43f35667947d, type: 3}
 --- !u!82 &2070242303
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5096,12 +5097,7 @@ PrefabInstance:
       propertyPath: cherryNumber
       value: 
       objectReference: {fileID: 1988219520}
-    m_RemovedComponents:
-    - {fileID: 567567067, guid: 41a59ff1bfcb18e4bb675382e6f93b1e, type: 3}
-    - {fileID: 567567068, guid: 41a59ff1bfcb18e4bb675382e6f93b1e, type: 3}
-    - {fileID: 567567069, guid: 41a59ff1bfcb18e4bb675382e6f93b1e, type: 3}
-    - {fileID: 567567070, guid: 41a59ff1bfcb18e4bb675382e6f93b1e, type: 3}
-    - {fileID: 2727091377658163066, guid: 41a59ff1bfcb18e4bb675382e6f93b1e, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41a59ff1bfcb18e4bb675382e6f93b1e, type: 3}
 --- !u!1001 &6050707357563869596
 PrefabInstance:
