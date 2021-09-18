@@ -13,13 +13,15 @@ public class FinalMovement : MonoBehaviour
     public Collider2D coll, headColl;
     public Transform groundCheck, headCheck;
     public Text cherryNumber, gemNumber;
+    public GameObject playerHP;
     public LayerMask ground;
 
     private bool isGround, isHead, isCrouch, isHurt;
-    private bool jumpPressed;
+    private bool jumpPressed, reduceHealth;
     private int jumpCount;
     private int cherry = 0, gem = 0;
     private float speedTemp;
+    private int health = 3;
 
     void Start()
     {
@@ -43,6 +45,8 @@ public class FinalMovement : MonoBehaviour
         {
             isCrouch = false;
         }
+
+        HurtHealth();
     }
 
     private void FixedUpdate()
@@ -174,7 +178,7 @@ public class FinalMovement : MonoBehaviour
         {
             SoundManager.instance.bgmAudio.Stop();
             SoundManager.instance.DeathAudio();
-            Invoke("DeadLine", 2.0f);
+            Invoke("ResetScene", 2.0f);
         }
     }
 
@@ -203,15 +207,35 @@ public class FinalMovement : MonoBehaviour
                     rb.velocity = new Vector2(5, jumpForce);
                 }
                 isHurt = true;
+                reduceHealth = true;
                 SoundManager.instance.HurtAudio();
                 anim.SetBool("Hurt", true);
             }
         }
     }
 
-    void DeadLine()
+    // 死亡初始化场景
+    void ResetScene()
     {
+        health = 3;
         SoundManager.instance.bgmAudio.Play();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    // 血条显示
+    void HurtHealth()
+    {
+        if (isHurt && reduceHealth)
+        {
+            health--;
+            reduceHealth = false;
+            playerHP.transform.GetChild(3 + health).gameObject.SetActive(true);
+        }
+
+        if (health <= 0)
+        {
+            SoundManager.instance.bgmAudio.Stop();
+            Invoke("ResetScene", 0.8f);
+        }
     }
 }
