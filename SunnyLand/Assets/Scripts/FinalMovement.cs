@@ -176,8 +176,11 @@ public class FinalMovement : MonoBehaviour
 
         if (collision.CompareTag("DeadLine"))
         {
-            SoundManager.instance.bgmAudio.Stop();
-            SoundManager.instance.DeathAudio();
+            if (health != 0)
+            {
+                SoundManager.instance.bgmAudio.Stop();
+                SoundManager.instance.DeathAudio();
+            }
             Invoke("ResetScene", 2.0f);
         }
     }
@@ -206,10 +209,25 @@ public class FinalMovement : MonoBehaviour
                 {
                     rb.velocity = new Vector2(5, jumpForce);
                 }
-                isHurt = true;
-                reduceHealth = true;
-                SoundManager.instance.HurtAudio();
-                anim.SetBool("Hurt", true);
+
+                // À¿Õˆ∂Øª≠
+                if (health == 1)
+                {
+                    isHurt = true;
+                    reduceHealth = true;
+                    headColl.isTrigger = true;
+                    SoundManager.instance.bgmAudio.Stop();
+                    SoundManager.instance.DeathAudio();
+                    anim.SetBool("Hurt", true);
+                }
+                //  ‹…À∂Øª≠
+                else
+                {
+                    isHurt = true;
+                    reduceHealth = true;
+                    SoundManager.instance.HurtAudio();
+                    anim.SetBool("Hurt", true);
+                }
             }
         }
     }
@@ -230,12 +248,6 @@ public class FinalMovement : MonoBehaviour
             health--;
             reduceHealth = false;
             playerHP.transform.GetChild(3 + health).gameObject.SetActive(true);
-        }
-
-        if (health <= 0)
-        {
-            SoundManager.instance.bgmAudio.Stop();
-            Invoke("ResetScene", 0.8f);
         }
     }
 }
