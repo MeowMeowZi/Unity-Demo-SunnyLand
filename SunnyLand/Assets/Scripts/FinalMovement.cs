@@ -215,10 +215,11 @@ public class FinalMovement : MonoBehaviour
                 {
                     isHurt = true;
                     reduceHealth = true;
-                    headColl.isTrigger = true;
+                    //headColl.isTrigger = true;
                     SoundManager.instance.bgmAudio.Stop();
                     SoundManager.instance.DeathAudio();
-                    anim.SetBool("Hurt", true);
+                    //anim.SetBool("Hurt", true);
+                    anim.SetTrigger("Death");
                 }
                 //  ‹…À∂Øª≠
                 else

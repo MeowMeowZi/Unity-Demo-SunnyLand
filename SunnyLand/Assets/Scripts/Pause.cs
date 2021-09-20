@@ -1,5 +1,6 @@
 using UnityEngine.Audio;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour
 {
@@ -21,5 +22,10 @@ public class Pause : MonoBehaviour
     public void SetVolume(float value)
     {
         audioMixer.SetFloat("MainVolume", value);
+    }
+
+    public void BackLevelSelectInterface()
+    {
+        SceneManager.LoadScene("LevelBar");
     }
 }

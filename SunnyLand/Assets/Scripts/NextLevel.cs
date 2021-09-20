@@ -9,7 +9,11 @@ public class NextLevel : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            if (SceneManager.GetActiveScene().buildIndex - 2 >= PlayerPrefs.GetInt("unlockLevelIndex"))
+            {
+                PlayerPrefs.SetInt("unlockLevelIndex", SceneManager.GetActiveScene().buildIndex + 1 - 2);
+            }
+            SceneManager.LoadScene("LevelBar");
         }
     }
 }
