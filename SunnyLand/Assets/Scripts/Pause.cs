@@ -26,6 +26,6 @@ public class Pause : MonoBehaviour
 
     public void BackLevelSelectInterface()
     {
-        SceneManager.LoadScene("LevelBar");
+        SceneManager.LoadScene("Menu");
     }
 }
